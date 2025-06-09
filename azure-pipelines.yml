@@ -1,0 +1,22 @@
+trigger:
+  - main
+
+pool:
+  name: Default
+
+steps:
+  # Step 1: Echo command
+  - script: echo Hello, it's my Azure DevOps App using Gradle
+    displayName: 'Run an echo command'
+
+  # Step 2: Gradle Build
+  - task: Gradle@2
+    inputs:
+      gradleWrapperFile: 'gradlew' # Path to your Gradle wrapper file
+      options: '--stacktrace'
+      tasks: 'clean build'
+    displayName: 'Build with Gradle'
+
+  # Step 3: Run the built jar
+  - script: java -jar app.jar
+    displayName: 'Run a jar file of My HelloGradle App'
