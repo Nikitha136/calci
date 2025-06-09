@@ -18,5 +18,5 @@ steps:
     displayName: 'Build with Gradle'
 
   # Step 3: Run the built jar
-  - script: java -jar app/build/libs/app.jar
+  - script: java -jar build/libs/app-0.0.1-SNAPSHOT.jar
     displayName: 'Run a jar file of My HelloGradle App'
